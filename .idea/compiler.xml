@@ -10,11 +10,13 @@
         <module name="account-management-service" />
         <module name="user-service" />
         <module name="discovery-server" />
+        <module name="gateway-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="account-management-service" target="17" />
       <module name="discovery-server" target="17" />
+      <module name="gateway-service" target="17" />
       <module name="user-service" target="17" />
     </bytecodeTargetLevel>
   </component>
@@ -22,6 +24,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="account-management-service" options="-parameters" />
       <module name="discovery-server" options="-parameters" />
+      <module name="gateway-service" options="-parameters" />
       <module name="user-service" options="-parameters" />
     </option>
   </component>
