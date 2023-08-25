@@ -1,4 +1,18 @@
 package com.org.userservice.service;
 
-public class UserService {
+import com.org.userservice.model.User;
+
+import java.util.List;
+
+public interface UserService {
+
+    User getUser(String id);
+
+    List<User> getAllUser();
+
+    User createUser(User user);
+
+    User updateUser(User user);
+
+    User deleteUser(String id);
 }
