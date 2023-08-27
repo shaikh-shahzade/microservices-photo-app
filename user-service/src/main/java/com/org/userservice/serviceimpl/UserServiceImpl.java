@@ -4,13 +4,18 @@ import com.org.userservice.model.User;
 import com.org.userservice.repo.UserRepo;
 import com.org.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepo userRepo;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     @Override
     public User getUser(String id) {
 
@@ -24,6 +29,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(User user) {
+        user.setId(UUID.randomUUID().toString());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
         user = userRepo.save(user);
         return user;
     }
@@ -34,7 +42,7 @@ public class UserServiceImpl implements UserService {
         u.setEmail(user.getEmail());
         u.setFname(user.getFname());
         u.setLname(user.getLname());
-        u.setPassword(user.getPassword());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user = userRepo.save(u);
         return user;
     }
