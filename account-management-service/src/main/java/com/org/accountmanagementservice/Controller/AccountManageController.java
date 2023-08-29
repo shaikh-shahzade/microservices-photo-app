@@ -1,5 +1,6 @@
 package com.org.accountmanagementservice.Controller;
 
+import com.org.accountmanagementservice.model.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,12 @@ public class AccountManageController {
     public String getStatus()
     {
         return "Working";
+    }
+
+    @GetMapping("status")
+    public User getUser()
+    {
+        return new User("abcd","shaikh","shahzade","shahzade10@gmail.com");
     }
 
 }
