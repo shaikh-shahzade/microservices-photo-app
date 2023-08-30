@@ -14,7 +14,7 @@ public class AccountManageController {
         return "Working";
     }
 
-    @GetMapping("status")
+    @GetMapping("user")
     public User getUser()
     {
         return new User("abcd","shaikh","shahzade","shahzade10@gmail.com");
