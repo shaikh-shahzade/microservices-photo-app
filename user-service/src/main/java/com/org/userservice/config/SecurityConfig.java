@@ -28,7 +28,8 @@ public class SecurityConfig{
                         authorize.antMatchers(HttpMethod.POST , "/user" )
 
                                 .permitAll()
-
+                                .antMatchers("/actuator/*")
+                                .permitAll()
                                 .anyRequest()
                                 .authenticated()
 
