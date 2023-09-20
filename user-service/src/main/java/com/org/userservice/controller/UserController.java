@@ -1,5 +1,6 @@
 package com.org.userservice.controller;
 
+import com.org.userservice.model.Album;
 import com.org.userservice.model.User;
 import com.org.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,4 +39,11 @@ public class UserController {
     {
         return userService.deleteUser(id);
     }
+
+    @GetMapping("albums")
+    public List<Album> getAlbums()
+    {
+        return userService.getAlbums();
+    }
+
 }

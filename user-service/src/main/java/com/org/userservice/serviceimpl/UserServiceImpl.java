@@ -1,7 +1,9 @@
 package com.org.userservice.serviceimpl;
 
+import com.org.userservice.model.Album;
 import com.org.userservice.model.User;
 import com.org.userservice.repo.UserRepo;
+import com.org.userservice.service.AlbumService;
 import com.org.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,6 +16,8 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepo userRepo;
+    @Autowired
+    private AlbumService albumService;
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Override
@@ -52,5 +56,10 @@ public class UserServiceImpl implements UserService {
         User u = userRepo.findById(id).get();
         userRepo.delete(u);
         return u;
+    }
+
+    @Override
+    public List<Album> getAlbums() {
+        return albumService.getAlbums();
     }
 }
