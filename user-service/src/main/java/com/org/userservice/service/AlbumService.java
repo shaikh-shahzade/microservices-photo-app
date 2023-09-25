@@ -29,6 +29,8 @@ public interface AlbumService {
         Logger logger = LoggerFactory.getLogger(AlbumService.class);
         logger.info("Fallback method called for albums service call");
         logger.info(e.getMessage());
+        logger.debug("Calling microservice");
+        logger.debug(e.getMessage());
         System.out.println(e);
         return new ArrayList<Album>();
 

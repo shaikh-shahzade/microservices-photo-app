@@ -5,6 +5,8 @@ import com.org.userservice.model.User;
 import com.org.userservice.repo.UserRepo;
 import com.org.userservice.service.AlbumService;
 import com.org.userservice.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -60,6 +62,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<Album> getAlbums() {
+        Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+        logger.trace("CAlled");
+        logger.info("called info");
+        logger.debug("Album service called");
         return albumService.getAlbums();
+
     }
 }
