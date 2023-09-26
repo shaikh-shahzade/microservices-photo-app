@@ -63,8 +63,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<Album> getAlbums() {
         Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-        logger.trace("CAlled");
-        logger.info("called info");
+
         logger.debug("Album service called");
         return albumService.getAlbums();
 
